@@ -22,7 +22,7 @@
                     <!--设置-->
                     <i class="el-icon-setting"></i>
                     <!--搜索-->
-                    <i class="el-icon-search"></i>
+                    <i class="el-icon-search" @click="clickSearch()"></i>
                     <!--消息-->
                     <i class="el-icon-time" @click="showBotice()"></i>
                     <!--用户-->
@@ -188,6 +188,10 @@
             showBotice: function () {
                 this.noticeVisible = true;
                 //获取通知的内容
+            },
+            /*点击搜索*/
+            clickSearch:function () {
+                
             }
 
         },

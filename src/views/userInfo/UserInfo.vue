@@ -16,6 +16,7 @@
                             <el-form-item>
                                 <el-button type="primary" v-on:click="getUsers">查询</el-button>
                             </el-form-item>
+                            <el-button type="success" @click="handleAdd()">添加用户</el-button>
                         </el-form>
                     </div>
                 </el-col>
