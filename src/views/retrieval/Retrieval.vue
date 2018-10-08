@@ -1,7 +1,7 @@
 <template>
     <section>
         <LongSearch  v-on:childSearch="childSearch"/>
-        <el-row style="margin-top: 20px" v-show="isShowResultBox">
+        <el-row style="margin-top: 20px"  >
             <el-col :span="24">
                 <div class="result-box">
                     <el-row class="result-title">
@@ -12,7 +12,14 @@
                     <!--结果展示-->
                     <el-row  class="result-title">
                         <el-col :span="24">
-                            <div class="result-item"></div>
+                            <div class="result-item">
+                                <p> <span>开发记录</span>  联系方式：（邮件，SKYPE, WAHTSAPP, VK, telegram, 电话，imessenger 其它）</p>
+                                <p> 内容： 日常开发 、日常议价、具体case</p>
+                                <div class="time-name">
+                                    <span>2018/09/29</span>
+                                    <span>杨过</span>
+                                </div>
+                            </div>
                         </el-col>
                     </el-row>
                 </div>
@@ -58,10 +65,32 @@
             margin-bottom: 38px;
         }
         .result-item {
-            height: 50px;
-            padding: 10px 20px;
+            position: relative;
+            height: 60px;
+            padding: 5px 20px;
             border: 1px solid #BBBBBB;
+            font-size: 16px;
+            p{
+                padding: 5px 0;
+                margin: 0;
+                span{
+                    margin-right: 35px ;
 
+                }
+            }
+            .time-name{
+                position: absolute;
+                right: 15px;
+                top: 40px;
+                height: 60px;
+                margin-top: -20px;
+                text-align: center;
+                span{
+                    display: block;
+                    padding: 2px auto;
+                }
+            }
         }
+
     }
 </style>

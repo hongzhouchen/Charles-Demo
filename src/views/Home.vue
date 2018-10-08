@@ -30,9 +30,14 @@
                     <el-dropdown>
                         <span class="el-dropdown-link userinfo-inner"> <img :src="this.sysUserAvatar"/>  {{sysUserName}} </span>
                         <el-dropdown-menu slot="dropdown">
-                            <el-dropdown-item>我的消息</el-dropdown-item>
-                            <el-dropdown-item>设置</el-dropdown-item>
-                            <el-dropdown-item divided @click.native="logout">退出登录</el-dropdown-item>
+                            <el-dropdown-item><i class="el-icon-star-on"></i>&nbsp;<router-link to="/personInfo">个人信息</router-link></el-dropdown-item>
+                            <el-dropdown-item><i class="el-icon-star-on"></i>&nbsp;员工管理</el-dropdown-item>
+                            <el-dropdown-item><i class="el-icon-star-on"></i>&nbsp;部门管理</el-dropdown-item>
+                            <el-dropdown-item><i class="el-icon-star-on"></i>&nbsp;标签管理</el-dropdown-item>
+                            <el-dropdown-item><i class="el-icon-star-on"></i>&nbsp;分类管理</el-dropdown-item>
+                            <el-dropdown-item><i class="el-icon-star-on"></i>&nbsp;字段管理</el-dropdown-item>
+                            <el-dropdown-item divided @click.native="logout"><i class="el-icon-star-on"></i>&nbsp;注销
+                            </el-dropdown-item>
                         </el-dropdown-menu>
 
                     </el-dropdown>
@@ -46,16 +51,17 @@
                         <template v-for="(item,index) in $router.options.routes" v-if="!item.hidden">
                             <el-submenu :index="index+''" v-if="!item.leaf">
                                 <template slot="title"><i :class="item.iconCls"></i>{{item.name}}</template>
-                                <el-menu-item v-for="child in item.children" :index="child.path" :key="child.path"
+                                <el-menu-item style=" min-width: 80px;" v-for="child in item.children"
+                                              :index="child.path" :key="child.path"
                                               v-if="!child.hidden">{{child.name}}
                                 </el-menu-item>
                             </el-submenu>
-                            <el-menu-item v-if="item.leaf&&item.children.length>0" :index="item.children[0].path"><i
+                            <el-menu-item style=" min-width: 80px;" v-if="item.leaf&&item.children.length>0&&item.showLeft"
+                                          :index="item.children[0].path"><i
                                     :class="item.iconCls"></i>{{item.children[0].name}}
                             </el-menu-item>
                         </template>
                     </el-menu>
-
                     <!--导航菜单-折叠后-->
                     <ul class="el-menu el-menu-vertical-demo collapsed" v-show="collapsed" ref="menuCollapsed">
                         <li v-for="(item,index) in $router.options.routes" v-if="!item.hidden" class="el-submenu item">
@@ -73,19 +79,16 @@
                                 </ul>
                             </template>
                             <template v-else>
-                        <li class="el-submenu">
-                            <div class="el-submenu__title el-menu-item"
-                                 style="padding-left: 20px;height: 56px;line-height: 56px;padding: 0 20px;"
-                                 :class="$route.path==item.children[0].path?'is-active':''"
-                                 @click="$router.push(item.children[0].path)"><i :class="item.iconCls"></i></div>
+                                <li class="el-submenu">
+                                    <div class="el-submenu__title el-menu-item" style="padding-left: 20px;height: 56px;line-height: 56px;padding: 0 20px;min-width:80px" :class="$route.path==item.children[0].path?'is-active':''" @click="$router.push(item.children[0].path)"><i :class="item.iconCls"></i></div>
+                                </li>
+                            </template>
                         </li>
-</template>
-</li>
-</ul>
-</aside>
+                    </ul>
+                </aside>
 
-<!--内容区域-->
-<section class="content-container">
+                <!--内容区域-->
+                <section class="content-container">
     <div class="grid-content bg-purple-light">
         <el-col :span="24" class="breadcrumb-container">
             <el-breadcrumb separator="/" class="breadcrumb-inner" style="margin-bottom: 15px">
@@ -101,11 +104,11 @@
         </el-col>
     </div>
 </section>
-</el-col>
-</el-row>
+                </el-col>
+            </el-row>
 
 <!--通知Dialog-->
-<el-dialog title="通知" v-model="noticeVisible" :close-on-click-modal="false">
+<el-dialog title="通知"    :visible.sync="noticeVisible">
     <el-table>
         <el-table-column prop="companyname" label="需求名称"></el-table-column>
         <el-table-column prop="companyname" label="开始时间"></el-table-column>
@@ -113,7 +116,6 @@
         <el-table-column prop="companyname" label="分类标签"></el-table-column>
         <el-table-column prop="companyname" label="放置时间"></el-table-column>
     </el-table>
-
 </el-dialog>
 </section>
 
@@ -138,6 +140,7 @@
                     resource: '',
                     desc: ''
                 },
+                /*通知*/
                 noticeVisible: false
             }
         },
@@ -166,12 +169,8 @@
                     sessionStorage.removeItem('user');
                     _this.$router.push('/login');
                 }).catch(() => {
-
                 });
-
-
             },
-
             //折叠导航栏
             collapse: function () {
                 this.collapsed = !this.collapsed;
@@ -190,8 +189,7 @@
                 //获取通知的内容
             },
             /*点击搜索*/
-            clickSearch:function () {
-                
+            clickSearch: function () {
             }
 
         },

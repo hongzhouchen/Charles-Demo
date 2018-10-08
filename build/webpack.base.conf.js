@@ -39,9 +39,15 @@ module.exports = {
         include: [
             resolve('src'),
             resolve('test'),
-            resolve('node_moudules/_element-ui@1.4.13@element-ui/packages/element-ui/packages/col/src/col.js'),
-            /*resolve('/node_modules/.1.4.13@element-ui/src'),
-            resolve('/node_modules/.1.4.13@element-ui/packages')*/
+            /*
+            resolve('node_modules/element-ui/!*')*/
+            resolve('node_modules/element-ui/packages/col/src/col.js'),
+            resolve('node_modules/element-ui/packages/row/src/row.js'),
+            resolve('node_modules/element-ui/src/mixins/emitter.js'),
+            resolve('node_modules/element-ui/src/utils/merge.js'),
+            resolve('node_modules/element-ui/src/utils/util.js')
+
+
         ]
       },
       {

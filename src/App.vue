@@ -13,18 +13,17 @@ export default {
 	components: {
 	}
 }
-
 </script>
 
 <style lang="scss">
+
 body {
-	margin: 0px;
-	padding: 0px;
-	font-family: Helvetica Neue, Helvetica, PingFang SC, Hiragino Sans GB, Microsoft YaHei, SimSun, sans-serif;
+	//Font-family: Helvetica, Tahoma, Arial, STXihei, "华文细黑", "Microsoft YaHei", "微软雅黑", SimSun, "宋体", Heiti, "黑体", sans-serif;
+	font-family: '微软雅黑 Light';
 	font-size: 14px;
 	-webkit-font-smoothing: antialiased;
 	background: #f0f2f5;
-	color: #333333;
+	color: #666;
 }
 
 #app {
@@ -59,13 +58,5 @@ body {
 .fade-enter,
 .fade-leave-active {
 	opacity: 0;
-}
-	/**/
-.fl {
-	float: left;
-}
-
-.fr {
-	float: right;
 }
 </style>

@@ -1,0 +1,66 @@
+/**
+*作者：Charles
+*/
+/*左浮动*/
+.fl {
+    float: left;
+}
+/*右浮动*/
+.fr {
+    float: right;
+}
+/*字体大小*/
+.f10{
+    font-size: 10px;
+}
+.f12{
+    font-size: 12px;
+}
+
+.f14{
+    font-size: 14px;
+}
+.f16{
+    font-size: 16px;
+}
+.f18{
+    font-size: 18px;
+}
+.f20{
+    font-size: 20px;
+}
+/*边距*/
+.ml10{
+    margin-left: 10px;
+}
+.ml5{
+    margin-left: 5px;
+}
+.ml8{
+    margin-left: 8px;
+}
+.ml10{
+    margin-left: 10px;
+}
+.ml15{
+    margin-left: 15px;
+}
+.ml20{
+    margin-left: 20px;
+}
+
+.mr10{
+ margin-right: 10px;
+}
+.mr15{
+    margin-right: 15px;
+}
+.mr20{
+    margin-right: 20px;
+}
+.mr30{
+    margin-right: 30px;
+}
+.mr50{
+    margin-right: 50px;
+}

@@ -62,7 +62,7 @@
                 </el-pagination>
             </el-col>
             <!--编辑界面-->
-            <el-dialog  title="编辑客户"  style="text-align: center" v-model="editFormVisible" :close-on-click-modal="false">
+            <el-dialog  title="编辑客户"  style="text-align: center" :visible.sync="editFormVisible" :close-on-click-modal="false">
                 <el-form :model="addForm" label-width="80px" :rules="addFormRules" ref="addForm">
                     <el-form-item label="公司名称" prop="companyname">
                         <el-input v-model="addForm.companyname" auto-complete="off"></el-input>
@@ -98,7 +98,7 @@
                 </div>
             </el-dialog>
             <!--新增界面-->
-            <el-dialog title="新增用户" v-model="addFormVisible" :close-on-click-modal="false">
+            <el-dialog title="新增用户"   :visible.sync="addFormVisible" :close-on-click-modal="false">
                 <el-form :model="addForm" label-width="80px" :rules="addFormRules" ref="addForm">
                     <el-form-item label="公司名称" prop="companyname">
                         <el-input v-model="addForm.companyname" auto-complete="off"></el-input>
@@ -133,7 +133,7 @@
             </el-dialog>
 
             <!--查看详情-->
-            <el-dialog title="查看详情" v-model="lookInfoVisible" :close-on-click-modal="false">
+            <el-dialog title="查看详情" :visible.sync="lookInfoVisible">
                 <el-table :data="lookInfoes" highlight-current-row v-loading=""  >
                     <el-table-column prop="id"  type="Index" label="ID" ></el-table-column>
                     <el-table-column prop="time" label="联系时间" ></el-table-column>
@@ -149,7 +149,7 @@
             </el-dialog>
 
             <!--添加详情-->
-            <el-dialog title="添加详情" v-model="addInfoesFormVisible" :close-on-click-modal="false">
+            <el-dialog title="添加详情"   :visible.sync="addInfoesFormVisible">
 
                 <el-form :model="addInfoesForm" label-width="80px" :rules="addInfoesForm" ref="addInfoesForm">
                     <el-form-item label="联系时间" prop="time">
@@ -305,7 +305,6 @@
                 /*查询详情*/
                 let params={id:row.id}
                 //加载，转圈此处省略
-
                 var  res= lookInfoById();
                 console.log(res);
                 //this.infototal; 可获取总数，此处省略

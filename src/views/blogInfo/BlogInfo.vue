@@ -60,7 +60,7 @@
 
 
             <!--编辑界面-->
-            <el-dialog  title="编辑博主"  style="text-align: center" v-model="editFormVisible" :close-on-click-modal="false">
+            <el-dialog  title="编辑博主"  style="text-align: center"  :visible.sync="editFormVisible" :close-on-click-modal="false">
                 <el-form :model="addForm" label-width="80px" :rules="addFormRules" ref="addForm">
                     <el-form-item label="公司名称" prop="companyname">
                         <el-input v-model="addForm.companyname" auto-complete="off"></el-input>
@@ -97,7 +97,7 @@
             </el-dialog>
 
             <!--新增界面-->
-            <el-dialog title="新增博主" v-model="addFormVisible" :close-on-click-modal="false">
+            <el-dialog title="新增博主" :visible.sync="addFormVisible" :close-on-click-modal="false">
                 <el-form :model="addForm" label-width="80px" :rules="addFormRules" ref="addForm">
 
                     <el-form-item label="公司名称" prop="companyname">
