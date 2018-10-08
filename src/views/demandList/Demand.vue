@@ -4,7 +4,7 @@
         <el-col :span="24">
             <el-button style="width: 100%;margin-bottom: 20px"  @click="handleAdd()"> 添加需求</el-button>
         </el-col>
-        <TableList />
+       <!-- <TableList />-->
     </section>
 </template>
 
@@ -13,7 +13,7 @@
 </style>
 
 <script>
-    import TableList from '@/components/TableList'
+
     export default {
         data() {
             return {
@@ -21,7 +21,6 @@
             }
         },
         components:{
-            TableList
         }
     }
 </script>

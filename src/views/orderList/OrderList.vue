@@ -13,7 +13,7 @@
             <el-table-column label="需求ID" prop="requirement_ID"></el-table-column>
             <el-table-column label="状态" prop="state"></el-table-column>
             <el-table-column min-width="180" label="操作" >
-                <template scope="scope" >
+                <template slot-scope="scope" >
                     <el-button size="small" @click="updateOrderById(scope.$index, scope.row)">编辑</el-button>
                     <el-button type="danger" size="small" >修改</el-button>
                     <el-button type="danger" size="small" >对应的订单</el-button>
@@ -52,7 +52,7 @@
             }
         },
         components:{
-            TableList
+
         },
         methods:{
             updateOrderById:function (index,row) {
